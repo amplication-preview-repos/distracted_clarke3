@@ -1,0 +1,59 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Relationship {
+  createdAt DateTime                   @default(now())
+  id        String                     @id @default(cuid())
+  personA   String?
+  personB   String?
+  typeField EnumRelationshipTypeField?
+  updatedAt DateTime                   @updatedAt
+}
+
+model Event {
+  createdAt   DateTime  @default(now())
+  date        DateTime?
+  description String?
+  id          String    @id @default(cuid())
+  location    Location? @relation(fields: [locationId], references: [id])
+  locationId  String?
+  title       String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model Person {
+  biography   String?
+  createdAt   DateTime          @default(now())
+  dateOfBirth DateTime?
+  dateOfDeath DateTime?
+  firstName   String?
+  gender      EnumPersonGender?
+  id          String            @id @default(cuid())
+  lastName    String?
+  updatedAt   DateTime          @updatedAt
+}
+
+model Location {
+  createdAt   DateTime @default(now())
+  description String?
+  events      Event[]
+  id          String   @id @default(cuid())
+  latitude    Float?
+  longitude   Float?
+  name        String?
+  updatedAt   DateTime @updatedAt
+}
+
+enum EnumRelationshipTypeField {
+  Option1
+}
+
+enum EnumPersonGender {
+  Option1
+}
