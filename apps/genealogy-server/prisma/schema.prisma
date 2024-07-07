@@ -8,46 +8,46 @@ generator client {
 }
 
 model Relationship {
-  createdAt DateTime                   @default(now())
   id        String                     @id @default(cuid())
+  createdAt DateTime                   @default(now())
+  updatedAt DateTime                   @updatedAt
+  typeField EnumRelationshipTypeField?
   personA   String?
   personB   String?
-  typeField EnumRelationshipTypeField?
-  updatedAt DateTime                   @updatedAt
 }
 
 model Event {
-  createdAt   DateTime  @default(now())
-  date        DateTime?
-  description String?
   id          String    @id @default(cuid())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  title       String?
+  description String?
+  date        DateTime?
   location    Location? @relation(fields: [locationId], references: [id])
   locationId  String?
-  title       String?
-  updatedAt   DateTime  @updatedAt
 }
 
 model Person {
-  biography   String?
+  id          String            @id @default(cuid())
   createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  lastName    String?
   dateOfBirth DateTime?
   dateOfDeath DateTime?
+  biography   String?
   firstName   String?
   gender      EnumPersonGender?
-  id          String            @id @default(cuid())
-  lastName    String?
-  updatedAt   DateTime          @updatedAt
 }
 
 model Location {
-  createdAt   DateTime @default(now())
-  description String?
-  events      Event[]
   id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  name        String?
+  description String?
   latitude    Float?
   longitude   Float?
-  name        String?
-  updatedAt   DateTime @updatedAt
+  events      Event[]
 }
 
 enum EnumRelationshipTypeField {

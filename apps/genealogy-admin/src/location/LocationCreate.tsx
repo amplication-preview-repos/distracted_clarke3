@@ -5,9 +5,9 @@ import {
   SimpleForm,
   CreateProps,
   TextInput,
+  NumberInput,
   ReferenceArrayInput,
   SelectArrayInput,
-  NumberInput,
 } from "react-admin";
 
 import { EventTitle } from "../event/EventTitle";
@@ -16,7 +16,10 @@ export const LocationCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
+        <TextInput label="name" source="name" />
         <TextInput label="description" multiline source="description" />
+        <NumberInput label="latitude" source="latitude" />
+        <NumberInput label="longitude" source="longitude" />
         <ReferenceArrayInput
           source="events"
           reference="Event"
@@ -25,9 +28,6 @@ export const LocationCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={EventTitle} />
         </ReferenceArrayInput>
-        <NumberInput label="latitude" source="latitude" />
-        <NumberInput label="longitude" source="longitude" />
-        <TextInput label="name" source="name" />
       </SimpleForm>
     </Create>
   );

@@ -1,13 +1,13 @@
+import { StringFilter } from "../../util/StringFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
-import { StringFilter } from "../../util/StringFilter";
 
 export type PersonWhereInput = {
-  biography?: StringNullableFilter;
-  dateOfBirth?: DateTimeNullableFilter;
-  dateOfDeath?: DateTimeNullableFilter;
-  firstName?: StringNullableFilter;
-  gender?: "Option1";
   id?: StringFilter;
   lastName?: StringNullableFilter;
+  dateOfBirth?: DateTimeNullableFilter;
+  dateOfDeath?: DateTimeNullableFilter;
+  biography?: StringNullableFilter;
+  firstName?: StringNullableFilter;
+  gender?: "Option1";
 };

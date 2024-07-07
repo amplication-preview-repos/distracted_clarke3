@@ -1,12 +1,12 @@
-import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { LocationWhereUniqueInput } from "../location/LocationWhereUniqueInput";
 
 export type EventWhereInput = {
-  date?: DateTimeNullableFilter;
-  description?: StringNullableFilter;
   id?: StringFilter;
-  location?: LocationWhereUniqueInput;
   title?: StringNullableFilter;
+  description?: StringNullableFilter;
+  date?: DateTimeNullableFilter;
+  location?: LocationWhereUniqueInput;
 };

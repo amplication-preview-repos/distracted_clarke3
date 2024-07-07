@@ -1,9 +1,9 @@
 import { EventUpdateManyWithoutLocationsInput } from "./EventUpdateManyWithoutLocationsInput";
 
 export type LocationUpdateInput = {
+  name?: string | null;
   description?: string | null;
-  events?: EventUpdateManyWithoutLocationsInput;
   latitude?: number | null;
   longitude?: number | null;
-  name?: string | null;
+  events?: EventUpdateManyWithoutLocationsInput;
 };

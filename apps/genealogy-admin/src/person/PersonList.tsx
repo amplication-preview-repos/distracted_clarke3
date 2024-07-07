@@ -12,15 +12,15 @@ export const PersonList = (props: ListProps): React.ReactElement => {
       pagination={<Pagination />}
     >
       <Datagrid rowClick="show">
-        <TextField label="biography" source="biography" />
+        <TextField label="ID" source="id" />
         <DateField source="createdAt" label="Created At" />
+        <DateField source="updatedAt" label="Updated At" />
+        <TextField label="lastName" source="lastName" />
         <TextField label="dateOfBirth" source="dateOfBirth" />
         <TextField label="dateOfDeath" source="dateOfDeath" />
+        <TextField label="biography" source="biography" />
         <TextField label="firstName" source="firstName" />
         <TextField label="gender" source="gender" />
-        <TextField label="ID" source="id" />
-        <TextField label="lastName" source="lastName" />
-        <DateField source="updatedAt" label="Updated At" />
       </Datagrid>
     </List>
   );

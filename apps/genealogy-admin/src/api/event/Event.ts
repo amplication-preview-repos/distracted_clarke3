@@ -1,11 +1,11 @@
 import { Location } from "../location/Location";
 
 export type Event = {
-  createdAt: Date;
-  date: Date | null;
-  description: string | null;
   id: string;
-  location?: Location | null;
-  title: string | null;
+  createdAt: Date;
   updatedAt: Date;
+  title: string | null;
+  description: string | null;
+  date: Date | null;
+  location?: Location | null;
 };

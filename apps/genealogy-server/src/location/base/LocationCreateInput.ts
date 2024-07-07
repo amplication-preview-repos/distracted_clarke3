@@ -15,10 +15,10 @@ import {
   IsString,
   MaxLength,
   IsOptional,
-  ValidateNested,
   IsNumber,
   Min,
   Max,
+  ValidateNested,
 } from "class-validator";
 import { EventCreateNestedManyWithoutLocationsInput } from "./EventCreateNestedManyWithoutLocationsInput";
 import { Type } from "class-transformer";
@@ -35,19 +35,19 @@ class LocationCreateInput {
   @Field(() => String, {
     nullable: true,
   })
-  description?: string | null;
+  name?: string | null;
 
   @ApiProperty({
     required: false,
-    type: () => EventCreateNestedManyWithoutLocationsInput,
+    type: String,
   })
-  @ValidateNested()
-  @Type(() => EventCreateNestedManyWithoutLocationsInput)
+  @IsString()
+  @MaxLength(1000)
   @IsOptional()
-  @Field(() => EventCreateNestedManyWithoutLocationsInput, {
+  @Field(() => String, {
     nullable: true,
   })
-  events?: EventCreateNestedManyWithoutLocationsInput;
+  description?: string | null;
 
   @ApiProperty({
     required: false,
@@ -77,15 +77,15 @@ class LocationCreateInput {
 
   @ApiProperty({
     required: false,
-    type: String,
+    type: () => EventCreateNestedManyWithoutLocationsInput,
   })
-  @IsString()
-  @MaxLength(1000)
+  @ValidateNested()
+  @Type(() => EventCreateNestedManyWithoutLocationsInput)
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => EventCreateNestedManyWithoutLocationsInput, {
     nullable: true,
   })
-  name?: string | null;
+  events?: EventCreateNestedManyWithoutLocationsInput;
 }
 
 export { LocationCreateInput as LocationCreateInput };

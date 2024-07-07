@@ -1,13 +1,13 @@
-import { StringNullableFilter } from "../../util/StringNullableFilter";
-import { EventListRelationFilter } from "../event/EventListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { EventListRelationFilter } from "../event/EventListRelationFilter";
 
 export type LocationWhereInput = {
-  description?: StringNullableFilter;
-  events?: EventListRelationFilter;
   id?: StringFilter;
+  name?: StringNullableFilter;
+  description?: StringNullableFilter;
   latitude?: FloatNullableFilter;
   longitude?: FloatNullableFilter;
-  name?: StringNullableFilter;
+  events?: EventListRelationFilter;
 };

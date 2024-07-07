@@ -36,13 +36,13 @@ export class LocationControllerBase {
     return await this.service.createLocation({
       data: data,
       select: {
-        createdAt: true,
-        description: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        name: true,
+        description: true,
         latitude: true,
         longitude: true,
-        name: true,
-        updatedAt: true,
       },
     });
   }
@@ -55,13 +55,13 @@ export class LocationControllerBase {
     return this.service.locations({
       ...args,
       select: {
-        createdAt: true,
-        description: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        name: true,
+        description: true,
         latitude: true,
         longitude: true,
-        name: true,
-        updatedAt: true,
       },
     });
   }
@@ -75,13 +75,13 @@ export class LocationControllerBase {
     const result = await this.service.location({
       where: params,
       select: {
-        createdAt: true,
-        description: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        name: true,
+        description: true,
         latitude: true,
         longitude: true,
-        name: true,
-        updatedAt: true,
       },
     });
     if (result === null) {
@@ -104,13 +104,13 @@ export class LocationControllerBase {
         where: params,
         data: data,
         select: {
-          createdAt: true,
-          description: true,
           id: true,
+          createdAt: true,
+          updatedAt: true,
+          name: true,
+          description: true,
           latitude: true,
           longitude: true,
-          name: true,
-          updatedAt: true,
         },
       });
     } catch (error) {
@@ -133,13 +133,13 @@ export class LocationControllerBase {
       return await this.service.deleteLocation({
         where: params,
         select: {
-          createdAt: true,
-          description: true,
           id: true,
+          createdAt: true,
+          updatedAt: true,
+          name: true,
+          description: true,
           latitude: true,
           longitude: true,
-          name: true,
-          updatedAt: true,
         },
       });
     } catch (error) {
@@ -162,19 +162,18 @@ export class LocationControllerBase {
     const results = await this.service.findEvents(params.id, {
       ...query,
       select: {
-        createdAt: true,
-        date: true,
-        description: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        title: true,
+        description: true,
+        date: true,
 
         location: {
           select: {
             id: true,
           },
         },
-
-        title: true,
-        updatedAt: true,
       },
     });
     if (results === null) {

@@ -39,19 +39,18 @@ export class EventControllerBase {
           : undefined,
       },
       select: {
-        createdAt: true,
-        date: true,
-        description: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        title: true,
+        description: true,
+        date: true,
 
         location: {
           select: {
             id: true,
           },
         },
-
-        title: true,
-        updatedAt: true,
       },
     });
   }
@@ -64,19 +63,18 @@ export class EventControllerBase {
     return this.service.events({
       ...args,
       select: {
-        createdAt: true,
-        date: true,
-        description: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        title: true,
+        description: true,
+        date: true,
 
         location: {
           select: {
             id: true,
           },
         },
-
-        title: true,
-        updatedAt: true,
       },
     });
   }
@@ -90,19 +88,18 @@ export class EventControllerBase {
     const result = await this.service.event({
       where: params,
       select: {
-        createdAt: true,
-        date: true,
-        description: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        title: true,
+        description: true,
+        date: true,
 
         location: {
           select: {
             id: true,
           },
         },
-
-        title: true,
-        updatedAt: true,
       },
     });
     if (result === null) {
@@ -133,19 +130,18 @@ export class EventControllerBase {
             : undefined,
         },
         select: {
-          createdAt: true,
-          date: true,
-          description: true,
           id: true,
+          createdAt: true,
+          updatedAt: true,
+          title: true,
+          description: true,
+          date: true,
 
           location: {
             select: {
               id: true,
             },
           },
-
-          title: true,
-          updatedAt: true,
         },
       });
     } catch (error) {
@@ -168,19 +164,18 @@ export class EventControllerBase {
       return await this.service.deleteEvent({
         where: params,
         select: {
-          createdAt: true,
-          date: true,
-          description: true,
           id: true,
+          createdAt: true,
+          updatedAt: true,
+          title: true,
+          description: true,
+          date: true,
 
           location: {
             select: {
               id: true,
             },
           },
-
-          title: true,
-          updatedAt: true,
         },
       });
     } catch (error) {

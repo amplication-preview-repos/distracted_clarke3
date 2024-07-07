@@ -4,8 +4,8 @@ import {
   Show,
   SimpleShowLayout,
   ShowProps,
-  DateField,
   TextField,
+  DateField,
   ReferenceManyField,
   Datagrid,
   ReferenceField,
@@ -17,23 +17,25 @@ export const LocationShow = (props: ShowProps): React.ReactElement => {
   return (
     <Show {...props}>
       <SimpleShowLayout>
-        <DateField source="createdAt" label="Created At" />
-        <TextField label="description" source="description" />
         <TextField label="ID" source="id" />
+        <DateField source="createdAt" label="Created At" />
+        <DateField source="updatedAt" label="Updated At" />
+        <TextField label="name" source="name" />
+        <TextField label="description" source="description" />
         <TextField label="latitude" source="latitude" />
         <TextField label="longitude" source="longitude" />
-        <TextField label="name" source="name" />
-        <DateField source="updatedAt" label="Updated At" />
         <ReferenceManyField
           reference="Event"
           target="locationId"
           label="Events"
         >
           <Datagrid rowClick="show">
-            <DateField source="createdAt" label="Created At" />
-            <TextField label="date" source="date" />
-            <TextField label="description" source="description" />
             <TextField label="ID" source="id" />
+            <DateField source="createdAt" label="Created At" />
+            <DateField source="updatedAt" label="Updated At" />
+            <TextField label="title" source="title" />
+            <TextField label="description" source="description" />
+            <TextField label="date" source="date" />
             <ReferenceField
               label="location"
               source="location.id"
@@ -41,8 +43,6 @@ export const LocationShow = (props: ShowProps): React.ReactElement => {
             >
               <TextField source={LOCATION_TITLE_FIELD} />
             </ReferenceField>
-            <TextField label="title" source="title" />
-            <DateField source="updatedAt" label="Updated At" />
           </Datagrid>
         </ReferenceManyField>
       </SimpleShowLayout>

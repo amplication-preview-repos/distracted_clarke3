@@ -3,16 +3,14 @@ import {
   Edit,
   SimpleForm,
   EditProps,
-  TextInput,
   SelectInput,
+  TextInput,
 } from "react-admin";
 
 export const RelationshipEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
-        <TextInput label="PersonA" source="personA" />
-        <TextInput label="PersonB" source="personB" />
         <SelectInput
           source="typeField"
           label="type"
@@ -21,6 +19,8 @@ export const RelationshipEdit = (props: EditProps): React.ReactElement => {
           allowEmpty
           optionValue="value"
         />
+        <TextInput label="PersonA" source="personA" />
+        <TextInput label="PersonB" source="personB" />
       </SimpleForm>
     </Edit>
   );

@@ -12,9 +12,10 @@ export const PersonEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
-        <TextInput label="biography" multiline source="biography" />
+        <TextInput label="lastName" source="lastName" />
         <DateTimeInput label="dateOfBirth" source="dateOfBirth" />
         <DateTimeInput label="dateOfDeath" source="dateOfDeath" />
+        <TextInput label="biography" multiline source="biography" />
         <TextInput label="firstName" source="firstName" />
         <SelectInput
           source="gender"
@@ -24,7 +25,6 @@ export const PersonEdit = (props: EditProps): React.ReactElement => {
           allowEmpty
           optionValue="value"
         />
-        <TextInput label="lastName" source="lastName" />
       </SimpleForm>
     </Edit>
   );

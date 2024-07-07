@@ -18,46 +18,46 @@ import { PersonService } from "../person.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
-  biography: "exampleBiography",
+  id: "exampleId",
   createdAt: new Date(),
+  updatedAt: new Date(),
+  lastName: "exampleLastName",
   dateOfBirth: new Date(),
   dateOfDeath: new Date(),
+  biography: "exampleBiography",
   firstName: "exampleFirstName",
-  id: "exampleId",
-  lastName: "exampleLastName",
-  updatedAt: new Date(),
 };
 const CREATE_RESULT = {
-  biography: "exampleBiography",
+  id: "exampleId",
   createdAt: new Date(),
+  updatedAt: new Date(),
+  lastName: "exampleLastName",
   dateOfBirth: new Date(),
   dateOfDeath: new Date(),
+  biography: "exampleBiography",
   firstName: "exampleFirstName",
-  id: "exampleId",
-  lastName: "exampleLastName",
-  updatedAt: new Date(),
 };
 const FIND_MANY_RESULT = [
   {
-    biography: "exampleBiography",
+    id: "exampleId",
     createdAt: new Date(),
+    updatedAt: new Date(),
+    lastName: "exampleLastName",
     dateOfBirth: new Date(),
     dateOfDeath: new Date(),
+    biography: "exampleBiography",
     firstName: "exampleFirstName",
-    id: "exampleId",
-    lastName: "exampleLastName",
-    updatedAt: new Date(),
   },
 ];
 const FIND_ONE_RESULT = {
-  biography: "exampleBiography",
+  id: "exampleId",
   createdAt: new Date(),
+  updatedAt: new Date(),
+  lastName: "exampleLastName",
   dateOfBirth: new Date(),
   dateOfDeath: new Date(),
+  biography: "exampleBiography",
   firstName: "exampleFirstName",
-  id: "exampleId",
-  lastName: "exampleLastName",
-  updatedAt: new Date(),
 };
 
 const service = {
@@ -143,9 +143,9 @@ describe("Person", () => {
       .expect({
         ...CREATE_RESULT,
         createdAt: CREATE_RESULT.createdAt.toISOString(),
+        updatedAt: CREATE_RESULT.updatedAt.toISOString(),
         dateOfBirth: CREATE_RESULT.dateOfBirth.toISOString(),
         dateOfDeath: CREATE_RESULT.dateOfDeath.toISOString(),
-        updatedAt: CREATE_RESULT.updatedAt.toISOString(),
       });
   });
 
@@ -157,9 +157,9 @@ describe("Person", () => {
         {
           ...FIND_MANY_RESULT[0],
           createdAt: FIND_MANY_RESULT[0].createdAt.toISOString(),
+          updatedAt: FIND_MANY_RESULT[0].updatedAt.toISOString(),
           dateOfBirth: FIND_MANY_RESULT[0].dateOfBirth.toISOString(),
           dateOfDeath: FIND_MANY_RESULT[0].dateOfDeath.toISOString(),
-          updatedAt: FIND_MANY_RESULT[0].updatedAt.toISOString(),
         },
       ]);
   });
@@ -182,9 +182,9 @@ describe("Person", () => {
       .expect({
         ...FIND_ONE_RESULT,
         createdAt: FIND_ONE_RESULT.createdAt.toISOString(),
+        updatedAt: FIND_ONE_RESULT.updatedAt.toISOString(),
         dateOfBirth: FIND_ONE_RESULT.dateOfBirth.toISOString(),
         dateOfDeath: FIND_ONE_RESULT.dateOfDeath.toISOString(),
-        updatedAt: FIND_ONE_RESULT.updatedAt.toISOString(),
       });
   });
 
@@ -197,9 +197,9 @@ describe("Person", () => {
       .expect({
         ...CREATE_RESULT,
         createdAt: CREATE_RESULT.createdAt.toISOString(),
+        updatedAt: CREATE_RESULT.updatedAt.toISOString(),
         dateOfBirth: CREATE_RESULT.dateOfBirth.toISOString(),
         dateOfDeath: CREATE_RESULT.dateOfDeath.toISOString(),
-        updatedAt: CREATE_RESULT.updatedAt.toISOString(),
       })
       .then(function () {
         agent

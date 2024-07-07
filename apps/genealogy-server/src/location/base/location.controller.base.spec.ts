@@ -18,42 +18,42 @@ import { LocationService } from "../location.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
-  createdAt: new Date(),
-  description: "exampleDescription",
   id: "exampleId",
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  name: "exampleName",
+  description: "exampleDescription",
   latitude: 42.42,
   longitude: 42.42,
-  name: "exampleName",
-  updatedAt: new Date(),
 };
 const CREATE_RESULT = {
-  createdAt: new Date(),
-  description: "exampleDescription",
   id: "exampleId",
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  name: "exampleName",
+  description: "exampleDescription",
   latitude: 42.42,
   longitude: 42.42,
-  name: "exampleName",
-  updatedAt: new Date(),
 };
 const FIND_MANY_RESULT = [
   {
-    createdAt: new Date(),
-    description: "exampleDescription",
     id: "exampleId",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    name: "exampleName",
+    description: "exampleDescription",
     latitude: 42.42,
     longitude: 42.42,
-    name: "exampleName",
-    updatedAt: new Date(),
   },
 ];
 const FIND_ONE_RESULT = {
-  createdAt: new Date(),
-  description: "exampleDescription",
   id: "exampleId",
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  name: "exampleName",
+  description: "exampleDescription",
   latitude: 42.42,
   longitude: 42.42,
-  name: "exampleName",
-  updatedAt: new Date(),
 };
 
 const service = {

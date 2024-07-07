@@ -11,15 +11,26 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
 import { IsOptional, IsEnum } from "class-validator";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { EnumPersonGender } from "./EnumPersonGender";
-import { StringFilter } from "../../util/StringFilter";
 
 @InputType()
 class PersonWhereInput {
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  id?: StringFilter;
+
   @ApiProperty({
     required: false,
     type: StringNullableFilter,
@@ -29,7 +40,7 @@ class PersonWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  biography?: StringNullableFilter;
+  lastName?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -62,6 +73,17 @@ class PersonWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
+  biography?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
   firstName?: StringNullableFilter;
 
   @ApiProperty({
@@ -74,28 +96,6 @@ class PersonWhereInput {
     nullable: true,
   })
   gender?: "Option1";
-
-  @ApiProperty({
-    required: false,
-    type: StringFilter,
-  })
-  @Type(() => StringFilter)
-  @IsOptional()
-  @Field(() => StringFilter, {
-    nullable: true,
-  })
-  id?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  lastName?: StringNullableFilter;
 }
 
 export { PersonWhereInput as PersonWhereInput };

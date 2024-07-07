@@ -12,10 +12,10 @@ https://docs.amplication.com/how-to/custom-code
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import {
-  IsDate,
-  IsOptional,
   IsString,
   MaxLength,
+  IsOptional,
+  IsDate,
   ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
@@ -25,14 +25,15 @@ import { LocationWhereUniqueInput } from "../../location/base/LocationWhereUniqu
 class EventCreateInput {
   @ApiProperty({
     required: false,
+    type: String,
   })
-  @IsDate()
-  @Type(() => Date)
+  @IsString()
+  @MaxLength(1000)
   @IsOptional()
-  @Field(() => Date, {
+  @Field(() => String, {
     nullable: true,
   })
-  date?: Date | null;
+  title?: string | null;
 
   @ApiProperty({
     required: false,
@@ -48,6 +49,17 @@ class EventCreateInput {
 
   @ApiProperty({
     required: false,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @IsOptional()
+  @Field(() => Date, {
+    nullable: true,
+  })
+  date?: Date | null;
+
+  @ApiProperty({
+    required: false,
     type: () => LocationWhereUniqueInput,
   })
   @ValidateNested()
@@ -57,18 +69,6 @@ class EventCreateInput {
     nullable: true,
   })
   location?: LocationWhereUniqueInput | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  title?: string | null;
 }
 
 export { EventCreateInput as EventCreateInput };

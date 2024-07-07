@@ -14,8 +14,8 @@ import { ApiProperty } from "@nestjs/swagger";
 import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
 import { IsOptional, IsEnum } from "class-validator";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { EnumRelationshipTypeField } from "./EnumRelationshipTypeField";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 
 @InputType()
 class RelationshipWhereInput {
@@ -29,6 +29,17 @@ class RelationshipWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    enum: EnumRelationshipTypeField,
+  })
+  @IsEnum(EnumRelationshipTypeField)
+  @IsOptional()
+  @Field(() => EnumRelationshipTypeField, {
+    nullable: true,
+  })
+  typeField?: "Option1";
 
   @ApiProperty({
     required: false,
@@ -51,17 +62,6 @@ class RelationshipWhereInput {
     nullable: true,
   })
   personB?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    enum: EnumRelationshipTypeField,
-  })
-  @IsEnum(EnumRelationshipTypeField)
-  @IsOptional()
-  @Field(() => EnumRelationshipTypeField, {
-    nullable: true,
-  })
-  typeField?: "Option1";
 }
 
 export { RelationshipWhereInput as RelationshipWhereInput };

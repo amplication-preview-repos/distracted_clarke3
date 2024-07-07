@@ -31,15 +31,15 @@ export class PersonControllerBase {
     return await this.service.createPerson({
       data: data,
       select: {
-        biography: true,
+        id: true,
         createdAt: true,
+        updatedAt: true,
+        lastName: true,
         dateOfBirth: true,
         dateOfDeath: true,
+        biography: true,
         firstName: true,
         gender: true,
-        id: true,
-        lastName: true,
-        updatedAt: true,
       },
     });
   }
@@ -52,15 +52,15 @@ export class PersonControllerBase {
     return this.service.people({
       ...args,
       select: {
-        biography: true,
+        id: true,
         createdAt: true,
+        updatedAt: true,
+        lastName: true,
         dateOfBirth: true,
         dateOfDeath: true,
+        biography: true,
         firstName: true,
         gender: true,
-        id: true,
-        lastName: true,
-        updatedAt: true,
       },
     });
   }
@@ -74,15 +74,15 @@ export class PersonControllerBase {
     const result = await this.service.person({
       where: params,
       select: {
-        biography: true,
+        id: true,
         createdAt: true,
+        updatedAt: true,
+        lastName: true,
         dateOfBirth: true,
         dateOfDeath: true,
+        biography: true,
         firstName: true,
         gender: true,
-        id: true,
-        lastName: true,
-        updatedAt: true,
       },
     });
     if (result === null) {
@@ -105,15 +105,15 @@ export class PersonControllerBase {
         where: params,
         data: data,
         select: {
-          biography: true,
+          id: true,
           createdAt: true,
+          updatedAt: true,
+          lastName: true,
           dateOfBirth: true,
           dateOfDeath: true,
+          biography: true,
           firstName: true,
           gender: true,
-          id: true,
-          lastName: true,
-          updatedAt: true,
         },
       });
     } catch (error) {
@@ -136,15 +136,15 @@ export class PersonControllerBase {
       return await this.service.deletePerson({
         where: params,
         select: {
-          biography: true,
+          id: true,
           createdAt: true,
+          updatedAt: true,
+          lastName: true,
           dateOfBirth: true,
           dateOfDeath: true,
+          biography: true,
           firstName: true,
           gender: true,
-          id: true,
-          lastName: true,
-          updatedAt: true,
         },
       });
     } catch (error) {

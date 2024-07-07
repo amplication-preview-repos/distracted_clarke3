@@ -4,8 +4,8 @@ import {
   Create,
   SimpleForm,
   CreateProps,
-  DateTimeInput,
   TextInput,
+  DateTimeInput,
   ReferenceInput,
   SelectInput,
 } from "react-admin";
@@ -16,8 +16,9 @@ export const EventCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
-        <DateTimeInput label="date" source="date" />
+        <TextInput label="title" source="title" />
         <TextInput label="description" multiline source="description" />
+        <DateTimeInput label="date" source="date" />
         <ReferenceInput
           source="location.id"
           reference="Location"
@@ -25,7 +26,6 @@ export const EventCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectInput optionText={LocationTitle} />
         </ReferenceInput>
-        <TextInput label="title" source="title" />
       </SimpleForm>
     </Create>
   );

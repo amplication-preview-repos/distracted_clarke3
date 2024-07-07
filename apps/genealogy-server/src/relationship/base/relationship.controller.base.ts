@@ -33,12 +33,12 @@ export class RelationshipControllerBase {
     return await this.service.createRelationship({
       data: data,
       select: {
-        createdAt: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        typeField: true,
         personA: true,
         personB: true,
-        typeField: true,
-        updatedAt: true,
       },
     });
   }
@@ -51,12 +51,12 @@ export class RelationshipControllerBase {
     return this.service.relationships({
       ...args,
       select: {
-        createdAt: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        typeField: true,
         personA: true,
         personB: true,
-        typeField: true,
-        updatedAt: true,
       },
     });
   }
@@ -70,12 +70,12 @@ export class RelationshipControllerBase {
     const result = await this.service.relationship({
       where: params,
       select: {
-        createdAt: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        typeField: true,
         personA: true,
         personB: true,
-        typeField: true,
-        updatedAt: true,
       },
     });
     if (result === null) {
@@ -98,12 +98,12 @@ export class RelationshipControllerBase {
         where: params,
         data: data,
         select: {
-          createdAt: true,
           id: true,
+          createdAt: true,
+          updatedAt: true,
+          typeField: true,
           personA: true,
           personB: true,
-          typeField: true,
-          updatedAt: true,
         },
       });
     } catch (error) {
@@ -126,12 +126,12 @@ export class RelationshipControllerBase {
       return await this.service.deleteRelationship({
         where: params,
         select: {
-          createdAt: true,
           id: true,
+          createdAt: true,
+          updatedAt: true,
+          typeField: true,
           personA: true,
           personB: true,
-          typeField: true,
-          updatedAt: true,
         },
       });
     } catch (error) {

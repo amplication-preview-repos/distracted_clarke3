@@ -1,10 +1,10 @@
 import { SortOrder } from "../../util/SortOrder";
 
 export type RelationshipOrderByInput = {
-  createdAt?: SortOrder;
   id?: SortOrder;
+  createdAt?: SortOrder;
+  updatedAt?: SortOrder;
+  typeField?: SortOrder;
   personA?: SortOrder;
   personB?: SortOrder;
-  typeField?: SortOrder;
-  updatedAt?: SortOrder;
 };

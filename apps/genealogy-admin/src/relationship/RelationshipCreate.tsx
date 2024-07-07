@@ -3,16 +3,14 @@ import {
   Create,
   SimpleForm,
   CreateProps,
-  TextInput,
   SelectInput,
+  TextInput,
 } from "react-admin";
 
 export const RelationshipCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
-        <TextInput label="PersonA" source="personA" />
-        <TextInput label="PersonB" source="personB" />
         <SelectInput
           source="typeField"
           label="type"
@@ -21,6 +19,8 @@ export const RelationshipCreate = (props: CreateProps): React.ReactElement => {
           allowEmpty
           optionValue="value"
         />
+        <TextInput label="PersonA" source="personA" />
+        <TextInput label="PersonB" source="personB" />
       </SimpleForm>
     </Create>
   );

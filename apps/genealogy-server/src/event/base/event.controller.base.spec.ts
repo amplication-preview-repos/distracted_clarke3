@@ -18,38 +18,38 @@ import { EventService } from "../event.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
-  createdAt: new Date(),
-  date: new Date(),
-  description: "exampleDescription",
   id: "exampleId",
-  title: "exampleTitle",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  title: "exampleTitle",
+  description: "exampleDescription",
+  date: new Date(),
 };
 const CREATE_RESULT = {
-  createdAt: new Date(),
-  date: new Date(),
-  description: "exampleDescription",
   id: "exampleId",
-  title: "exampleTitle",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  title: "exampleTitle",
+  description: "exampleDescription",
+  date: new Date(),
 };
 const FIND_MANY_RESULT = [
   {
-    createdAt: new Date(),
-    date: new Date(),
-    description: "exampleDescription",
     id: "exampleId",
-    title: "exampleTitle",
+    createdAt: new Date(),
     updatedAt: new Date(),
+    title: "exampleTitle",
+    description: "exampleDescription",
+    date: new Date(),
   },
 ];
 const FIND_ONE_RESULT = {
-  createdAt: new Date(),
-  date: new Date(),
-  description: "exampleDescription",
   id: "exampleId",
-  title: "exampleTitle",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  title: "exampleTitle",
+  description: "exampleDescription",
+  date: new Date(),
 };
 
 const service = {
@@ -135,8 +135,8 @@ describe("Event", () => {
       .expect({
         ...CREATE_RESULT,
         createdAt: CREATE_RESULT.createdAt.toISOString(),
-        date: CREATE_RESULT.date.toISOString(),
         updatedAt: CREATE_RESULT.updatedAt.toISOString(),
+        date: CREATE_RESULT.date.toISOString(),
       });
   });
 
@@ -148,8 +148,8 @@ describe("Event", () => {
         {
           ...FIND_MANY_RESULT[0],
           createdAt: FIND_MANY_RESULT[0].createdAt.toISOString(),
-          date: FIND_MANY_RESULT[0].date.toISOString(),
           updatedAt: FIND_MANY_RESULT[0].updatedAt.toISOString(),
+          date: FIND_MANY_RESULT[0].date.toISOString(),
         },
       ]);
   });
@@ -172,8 +172,8 @@ describe("Event", () => {
       .expect({
         ...FIND_ONE_RESULT,
         createdAt: FIND_ONE_RESULT.createdAt.toISOString(),
-        date: FIND_ONE_RESULT.date.toISOString(),
         updatedAt: FIND_ONE_RESULT.updatedAt.toISOString(),
+        date: FIND_ONE_RESULT.date.toISOString(),
       });
   });
 
@@ -186,8 +186,8 @@ describe("Event", () => {
       .expect({
         ...CREATE_RESULT,
         createdAt: CREATE_RESULT.createdAt.toISOString(),
-        date: CREATE_RESULT.date.toISOString(),
         updatedAt: CREATE_RESULT.updatedAt.toISOString(),
+        date: CREATE_RESULT.date.toISOString(),
       })
       .then(function () {
         agent

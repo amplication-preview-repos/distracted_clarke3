@@ -11,25 +11,36 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
-import { StringFilter } from "../../util/StringFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { LocationWhereUniqueInput } from "../../location/base/LocationWhereUniqueInput";
 
 @InputType()
 class EventWhereInput {
   @ApiProperty({
     required: false,
-    type: DateTimeNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => DateTimeNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => DateTimeNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  date?: DateTimeNullableFilter;
+  id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  title?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -44,14 +55,14 @@ class EventWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringFilter,
+    type: DateTimeNullableFilter,
   })
-  @Type(() => StringFilter)
+  @Type(() => DateTimeNullableFilter)
   @IsOptional()
-  @Field(() => StringFilter, {
+  @Field(() => DateTimeNullableFilter, {
     nullable: true,
   })
-  id?: StringFilter;
+  date?: DateTimeNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -64,17 +75,6 @@ class EventWhereInput {
     nullable: true,
   })
   location?: LocationWhereUniqueInput;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  title?: StringNullableFilter;
 }
 
 export { EventWhereInput as EventWhereInput };

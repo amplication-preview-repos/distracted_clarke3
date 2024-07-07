@@ -12,17 +12,25 @@ https://docs.amplication.com/how-to/custom-code
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import {
-  IsDate,
   IsString,
-  MaxLength,
-  IsOptional,
+  IsDate,
   IsEnum,
+  IsOptional,
+  MaxLength,
 } from "class-validator";
 import { Type } from "class-transformer";
 import { EnumRelationshipTypeField } from "./EnumRelationshipTypeField";
 
 @ObjectType()
 class Relationship {
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  id!: string;
+
   @ApiProperty({
     required: true,
   })
@@ -33,11 +41,22 @@ class Relationship {
 
   @ApiProperty({
     required: true,
-    type: String,
   })
-  @IsString()
-  @Field(() => String)
-  id!: string;
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  updatedAt!: Date;
+
+  @ApiProperty({
+    required: false,
+    enum: EnumRelationshipTypeField,
+  })
+  @IsEnum(EnumRelationshipTypeField)
+  @IsOptional()
+  @Field(() => EnumRelationshipTypeField, {
+    nullable: true,
+  })
+  typeField?: "Option1" | null;
 
   @ApiProperty({
     required: false,
@@ -62,25 +81,6 @@ class Relationship {
     nullable: true,
   })
   personB!: string | null;
-
-  @ApiProperty({
-    required: false,
-    enum: EnumRelationshipTypeField,
-  })
-  @IsEnum(EnumRelationshipTypeField)
-  @IsOptional()
-  @Field(() => EnumRelationshipTypeField, {
-    nullable: true,
-  })
-  typeField?: "Option1" | null;
-
-  @ApiProperty({
-    required: true,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @Field(() => Date)
-  updatedAt!: Date;
 }
 
 export { Relationship as Relationship };

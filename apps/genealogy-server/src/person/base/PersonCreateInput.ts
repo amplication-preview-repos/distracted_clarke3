@@ -33,7 +33,7 @@ class PersonCreateInput {
   @Field(() => String, {
     nullable: true,
   })
-  biography?: string | null;
+  lastName?: string | null;
 
   @ApiProperty({
     required: false,
@@ -67,6 +67,18 @@ class PersonCreateInput {
   @Field(() => String, {
     nullable: true,
   })
+  biography?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
   firstName?: string | null;
 
   @ApiProperty({
@@ -79,18 +91,6 @@ class PersonCreateInput {
     nullable: true,
   })
   gender?: "Option1" | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  lastName?: string | null;
 }
 
 export { PersonCreateInput as PersonCreateInput };

@@ -3,8 +3,8 @@ import {
   Show,
   SimpleShowLayout,
   ShowProps,
-  DateField,
   TextField,
+  DateField,
   ReferenceField,
 } from "react-admin";
 import { LOCATION_TITLE_FIELD } from "../location/LocationTitle";
@@ -13,10 +13,12 @@ export const EventShow = (props: ShowProps): React.ReactElement => {
   return (
     <Show {...props}>
       <SimpleShowLayout>
-        <DateField source="createdAt" label="Created At" />
-        <TextField label="date" source="date" />
-        <TextField label="description" source="description" />
         <TextField label="ID" source="id" />
+        <DateField source="createdAt" label="Created At" />
+        <DateField source="updatedAt" label="Updated At" />
+        <TextField label="title" source="title" />
+        <TextField label="description" source="description" />
+        <TextField label="date" source="date" />
         <ReferenceField
           label="location"
           source="location.id"
@@ -24,8 +26,6 @@ export const EventShow = (props: ShowProps): React.ReactElement => {
         >
           <TextField source={LOCATION_TITLE_FIELD} />
         </ReferenceField>
-        <TextField label="title" source="title" />
-        <DateField source="updatedAt" label="Updated At" />
       </SimpleShowLayout>
     </Show>
   );

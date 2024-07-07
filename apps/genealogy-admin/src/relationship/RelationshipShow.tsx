@@ -3,20 +3,20 @@ import {
   Show,
   SimpleShowLayout,
   ShowProps,
-  DateField,
   TextField,
+  DateField,
 } from "react-admin";
 
 export const RelationshipShow = (props: ShowProps): React.ReactElement => {
   return (
     <Show {...props}>
       <SimpleShowLayout>
-        <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
+        <DateField source="createdAt" label="Created At" />
+        <DateField source="updatedAt" label="Updated At" />
+        <TextField label="type" source="typeField" />
         <TextField label="PersonA" source="personA" />
         <TextField label="PersonB" source="personB" />
-        <TextField label="type" source="typeField" />
-        <DateField source="updatedAt" label="Updated At" />
       </SimpleShowLayout>
     </Show>
   );

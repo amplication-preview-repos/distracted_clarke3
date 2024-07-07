@@ -1,13 +1,13 @@
 import { SortOrder } from "../../util/SortOrder";
 
 export type PersonOrderByInput = {
-  biography?: SortOrder;
+  id?: SortOrder;
   createdAt?: SortOrder;
+  updatedAt?: SortOrder;
+  lastName?: SortOrder;
   dateOfBirth?: SortOrder;
   dateOfDeath?: SortOrder;
+  biography?: SortOrder;
   firstName?: SortOrder;
   gender?: SortOrder;
-  id?: SortOrder;
-  lastName?: SortOrder;
-  updatedAt?: SortOrder;
 };

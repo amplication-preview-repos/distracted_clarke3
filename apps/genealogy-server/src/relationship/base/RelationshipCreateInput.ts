@@ -11,11 +11,22 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, MaxLength, IsOptional, IsEnum } from "class-validator";
 import { EnumRelationshipTypeField } from "./EnumRelationshipTypeField";
+import { IsEnum, IsOptional, IsString, MaxLength } from "class-validator";
 
 @InputType()
 class RelationshipCreateInput {
+  @ApiProperty({
+    required: false,
+    enum: EnumRelationshipTypeField,
+  })
+  @IsEnum(EnumRelationshipTypeField)
+  @IsOptional()
+  @Field(() => EnumRelationshipTypeField, {
+    nullable: true,
+  })
+  typeField?: "Option1" | null;
+
   @ApiProperty({
     required: false,
     type: String,
@@ -39,17 +50,6 @@ class RelationshipCreateInput {
     nullable: true,
   })
   personB?: string | null;
-
-  @ApiProperty({
-    required: false,
-    enum: EnumRelationshipTypeField,
-  })
-  @IsEnum(EnumRelationshipTypeField)
-  @IsOptional()
-  @Field(() => EnumRelationshipTypeField, {
-    nullable: true,
-  })
-  typeField?: "Option1" | null;
 }
 
 export { RelationshipCreateInput as RelationshipCreateInput };

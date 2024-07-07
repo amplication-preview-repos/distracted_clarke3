@@ -15,10 +15,10 @@ import {
   IsString,
   MaxLength,
   IsOptional,
-  ValidateNested,
   IsNumber,
   Min,
   Max,
+  ValidateNested,
 } from "class-validator";
 import { EventUpdateManyWithoutLocationsInput } from "./EventUpdateManyWithoutLocationsInput";
 import { Type } from "class-transformer";
@@ -35,19 +35,19 @@ class LocationUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  description?: string | null;
+  name?: string | null;
 
   @ApiProperty({
     required: false,
-    type: () => EventUpdateManyWithoutLocationsInput,
+    type: String,
   })
-  @ValidateNested()
-  @Type(() => EventUpdateManyWithoutLocationsInput)
+  @IsString()
+  @MaxLength(1000)
   @IsOptional()
-  @Field(() => EventUpdateManyWithoutLocationsInput, {
+  @Field(() => String, {
     nullable: true,
   })
-  events?: EventUpdateManyWithoutLocationsInput;
+  description?: string | null;
 
   @ApiProperty({
     required: false,
@@ -77,15 +77,15 @@ class LocationUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: String,
+    type: () => EventUpdateManyWithoutLocationsInput,
   })
-  @IsString()
-  @MaxLength(1000)
+  @ValidateNested()
+  @Type(() => EventUpdateManyWithoutLocationsInput)
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => EventUpdateManyWithoutLocationsInput, {
     nullable: true,
   })
-  name?: string | null;
+  events?: EventUpdateManyWithoutLocationsInput;
 }
 
 export { LocationUpdateInput as LocationUpdateInput };

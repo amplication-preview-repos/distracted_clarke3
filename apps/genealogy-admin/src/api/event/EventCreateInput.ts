@@ -1,8 +1,8 @@
 import { LocationWhereUniqueInput } from "../location/LocationWhereUniqueInput";
 
 export type EventCreateInput = {
-  date?: Date | null;
-  description?: string | null;
-  location?: LocationWhereUniqueInput | null;
   title?: string | null;
+  description?: string | null;
+  date?: Date | null;
+  location?: LocationWhereUniqueInput | null;
 };

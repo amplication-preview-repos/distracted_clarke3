@@ -13,14 +13,14 @@ import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 
 import {
-  IsDate,
   IsString,
+  IsDate,
   MaxLength,
   IsOptional,
-  ValidateNested,
   IsNumber,
   Min,
   Max,
+  ValidateNested,
 } from "class-validator";
 
 import { Type } from "class-transformer";
@@ -30,11 +30,39 @@ import { Event } from "../../event/base/Event";
 class Location {
   @ApiProperty({
     required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  id!: string;
+
+  @ApiProperty({
+    required: true,
   })
   @IsDate()
   @Type(() => Date)
   @Field(() => Date)
   createdAt!: Date;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  updatedAt!: Date;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  name!: string | null;
 
   @ApiProperty({
     required: false,
@@ -47,23 +75,6 @@ class Location {
     nullable: true,
   })
   description!: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => [Event],
-  })
-  @ValidateNested()
-  @Type(() => Event)
-  @IsOptional()
-  events?: Array<Event>;
-
-  @ApiProperty({
-    required: true,
-    type: String,
-  })
-  @IsString()
-  @Field(() => String)
-  id!: string;
 
   @ApiProperty({
     required: false,
@@ -93,23 +104,12 @@ class Location {
 
   @ApiProperty({
     required: false,
-    type: String,
+    type: () => [Event],
   })
-  @IsString()
-  @MaxLength(1000)
+  @ValidateNested()
+  @Type(() => Event)
   @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  name!: string | null;
-
-  @ApiProperty({
-    required: true,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @Field(() => Date)
-  updatedAt!: Date;
+  events?: Array<Event>;
 }
 
 export { Location as Location };
